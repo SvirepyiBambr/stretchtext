@@ -1,3 +1,5 @@
+[![Made with pollinations.ai](https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg)](https://pollinations.ai/?ref=badge)
+
 # Stretchtext
 
 A browser extension that turns any web page into [stretchtext](https://en.wikipedia.org/wiki/StretchText): text that grows where you want more and shrinks back where you don't.
