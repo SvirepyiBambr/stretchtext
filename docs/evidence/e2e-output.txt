@@ -1,0 +1,10 @@
+Stretchtext E2E smoke test — headless Chromium with the unpacked extension
+Run: 2026-10-21
+
+extension id: cflkgoepiacenbpjfjanppadmhkimlgp
+seed: seed-ok
+content script loaded: False   # marker lives in the isolated world, the page cannot see it
+bubble: visible
+expansion: ' It presents a short overview at first, then reveals extra layers like glosses, citations, or alternative interpretations only when your cursor hovers or you tap to drill in.'
+html: Stretchtext is an old idea: <span id="target">text that expands where the reader asks for detail<span data-stretchtext="1" role="note" tabindex="0" title="Click to collapse" aria-label="Expansion: It presents a short overview ..."><span class="stretchtext-text"> It presents a short overview at first, then reveals extra layers like glosses, citations, or alternative interpretations only when your cursor hovers or you tap to drill in.</span><span aria-label="Collapse"> -</span></span></span>. Ted Nelson described
+RESULT: PASS
