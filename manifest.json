@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Stretchtext — grow any page",
+  "version": "0.1.0",
+  "description": "Select text on any page and grow it in place. Stretchtext, powered by Pollinations and paid with your own Pollen.",
+  "permissions": ["storage", "contextMenus", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://gen.pollinations.ai/*",
+    "https://enter.pollinations.ai/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": { "default_popup": "popup.html", "default_title": "Stretchtext" },
+  "options_page": "options.html",
+  "icons": {
+    "128": "icon128.png"
+  }
+}

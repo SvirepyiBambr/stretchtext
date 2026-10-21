@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stretchtext — options</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { margin: 0; padding: 32px 20px; font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, sans-serif;
+           background: #0f1115; color: #e8e8e6; }
+    main { max-width: 640px; margin: 0 auto; }
+    h1 { font-size: 22px; margin: 0 0 4px; }
+    .sub { color: #9aa0a6; margin: 0 0 28px; }
+    section { background: #171a20; border: 1px solid #2a2f37; border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; }
+    h2 { font-size: 15px; margin: 0 0 12px; letter-spacing: .02em; text-transform: uppercase; color: #b8bec6; }
+    button { font: inherit; font-weight: 600; padding: 9px 16px; border-radius: 8px; border: 1px solid #3a4048;
+             background: #262b33; color: #f2f2f0; cursor: pointer; }
+    button.primary { background: #f4b860; border-color: #f4b860; color: #1a1206; }
+    button:disabled { opacity: .5; cursor: default; }
+    input, select { font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid #3a4048;
+                    background: #10131a; color: #e8e8e6; min-width: 220px; }
+    .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .status { display: flex; gap: 8px; align-items: center; margin-bottom: 14px; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: #6b7280; }
+    .dot.on { background: #43c07a; }
+    code { background: #10131a; padding: 2px 6px; border-radius: 5px; font-size: 13px; }
+    .muted { color: #9aa0a6; font-size: 13px; }
+    .code-box { font: 600 26px/1.2 ui-monospace, SFMono-Regular, monospace; letter-spacing: .12em;
+                padding: 12px 16px; background: #10131a; border: 1px dashed #4a515b; border-radius: 10px;
+                display: inline-block; margin: 10px 0; }
+    #msg { min-height: 20px; font-size: 13px; color: #f4b860; }
+    a { color: #f4b860; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Stretchtext</h1>
+  <p class="sub">Grow any page in place. Readers pay with their own Pollen.</p>
+
+  <section>
+    <h2>Pollen account</h2>
+    <div class="status"><span class="dot" id="dot"></span><span id="statusText">Not connected</span></div>
+    <p class="muted">Stretchtext never pays for your reading. You authorize a scoped key with a budget and an expiry, and can revoke it any time in your Pollinations dashboard.</p>
+    <div class="row">
+      <button class="primary" id="connect">Connect Pollinations</button>
+      <button id="disconnect" hidden>Disconnect</button>
+    </div>
+    <div id="device" hidden>
+      <p>Open the authorization page and enter this code, or use the link that just opened:</p>
+      <div class="code-box" id="userCode">----</div>
+      <p class="muted">Waiting for approval… you can close this page after approving.</p>
+    </div>
+    <p id="msg"></p>
+  </section>
+
+  <section>
+    <h2>Model</h2>
+    <div class="row">
+      <input id="model" list="models" placeholder="openai/gpt-5.4-nano" />
+      <datalist id="models">
+        <option value="openai/gpt-5.4-nano"></option>
+        <option value="openai/gpt-5.4-mini"></option>
+        <option value="gemini"></option>
+        <option value="mistral"></option>
+      </datalist>
+      <button id="save">Save</button>
+    </div>
+    <p class="muted">Cheap, fast models are enough: an expansion is 1–2 sentences.</p>
+  </section>
+
+  <section>
+    <h2>How to use</h2>
+    <p>Select a phrase on any page and click <strong>⤢ Stretch</strong>, or <strong>Alt+Click</strong> a word. The addition grows right where you were reading; click it to collapse.</p>
+  </section>
+</main>
+<script src="options.js"></script>
+</body>
+</html>

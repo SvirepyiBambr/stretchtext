@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stretchtext — install</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #0d0f13; color: #e9e9e6;
+         font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 56px 22px 80px; }
+  .tag { display: inline-block; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+         color: #f4b860; border: 1px solid #4a3a1c; background: #1c1710; padding: 4px 10px; border-radius: 999px; }
+  h1 { font-size: clamp(32px, 6vw, 50px); line-height: 1.08; margin: 18px 0 14px; letter-spacing: -.02em; }
+  h1 em { font-style: normal; color: #f4b860; }
+  .lead { font-size: 19px; color: #b9bec6; margin: 0 0 30px; max-width: 620px; }
+  .demo { margin: 26px 0 36px; padding: 20px 22px; border: 1px solid #262b33; border-radius: 14px; background: #12151b; }
+  .demo p { margin: 0; }
+  .grow { background: linear-gradient(transparent 62%, rgba(244,184,96,.3) 62%); border-bottom: 1px dotted #b8842a; cursor: pointer; }
+  .exp { color: #f4b860; }
+  .exp[hidden] { display: none; }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; margin: 26px 0 40px; }
+  a.btn { display: inline-block; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 650; }
+  .primary { background: #f4b860; color: #1a1206; }
+  .ghost { border: 1px solid #3a4048; color: #e9e9e6; }
+  h2 { font-size: 20px; margin: 34px 0 10px; }
+  ol { padding-left: 22px; color: #cfd3d8; }
+  ol li { margin: 8px 0; }
+  code { background: #171b22; padding: 2px 6px; border-radius: 5px; font-size: 14px; }
+  .note { color: #9aa0a6; font-size: 14px; border-left: 2px solid #3a4048; padding-left: 14px; margin: 26px 0; }
+  footer { margin-top: 50px; color: #7c828a; font-size: 14px; }
+  a { color: #f4b860; }
+</style>
+</head>
+<body>
+<main>
+  <span class="tag">Browser extension</span>
+  <h1>Text that grows<br />where you want <em>more</em>.</h1>
+  <p class="lead">Stretchtext turns any page into stretchtext: select a phrase, and a sentence or two appears
+     right where you were reading. Click it to collapse. Paid with your own Pollen — no subscription, no middleman.</p>
+
+  <div class="demo">
+    <p>Stretchtext is an old idea: <span class="grow" id="grow">text that expands where the reader asks for detail</span><span class="exp" id="exp" hidden>
+       Ted Nelson described it in 1967, but writing every level by hand was too much work, so it never caught on.
+       Generated text makes the extra levels cheap enough to produce on demand.</span> Click the underlined phrase to see it work.</p>
+  </div>
+
+  <div class="btns">
+    <a class="btn primary" href="https://github.com/SvirepyiBambr/stretchtext/releases/latest">Download the extension</a>
+    <a class="btn ghost" href="https://github.com/SvirepyiBambr/stretchtext">Source on GitHub</a>
+  </div>
+
+  <h2>Install in 60 seconds</h2>
+  <ol>
+    <li>Download <code>stretchtext.zip</code> and unzip it into a folder you will keep.</li>
+    <li>Open <code>chrome://extensions</code> and turn on <strong>Developer mode</strong>.</li>
+    <li>Click <strong>Load unpacked</strong> and choose the unzipped folder.</li>
+    <li>Open <strong>Stretchtext options</strong> → <strong>Connect Pollinations</strong>, approve the device code.</li>
+  </ol>
+
+  <h2>Using it</h2>
+  <p>Select a phrase and click <strong>⤢ Stretch</strong>. Or <strong>Alt+Click</strong> a word.
+     The addition appears inline, follows the page's own text flow, and disappears when you click it.</p>
+
+  <p class="note">Your Pollen stays yours: the extension receives a scoped key with a budget and expiry that you approve,
+     and you can revoke it any time in the Pollinations dashboard. Only the selected phrase and its paragraph are sent for generation.</p>
+
+  <footer>Built for the <a href="https://github.com/pollinations/pollinations/issues/17998">stretchtext quest</a> ·
+    Powered by <a href="https://pollinations.ai">Pollinations</a> · MIT</footer>
+</main>
+<script>
+  const grow = document.getElementById('grow');
+  const exp = document.getElementById('exp');
+  grow.addEventListener('click', () => { exp.hidden = !exp.hidden; });
+  exp.addEventListener('click', () => { exp.hidden = true; });
+</script>
+</body>
+</html>
