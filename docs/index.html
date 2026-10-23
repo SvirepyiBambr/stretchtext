@@ -66,7 +66,16 @@
   <p class="note">Your Pollen stays yours: the extension receives a scoped key with a budget and expiry that you approve,
      and you can revoke it any time in the Pollinations dashboard. Only the selected phrase and its paragraph are sent for generation.</p>
 
-  <footer>Built for the <a href="https://github.com/pollinations/pollinations/issues/17998">stretchtext quest</a> ·
+    <h2>How it calls Pollinations</h2>
+  <p>Every expansion is one request to the text API with the reader's own scoped key:</p>
+  <pre><code>POST https://gen.pollinations.ai/v1/chat/completions
+Authorization: Bearer &lt;reader's scoped sk_ key&gt;</code></pre>
+  <p>Source: <a href="https://github.com/SvirepyiBambr/stretchtext/blob/main/content.js#L125">content.js line 125</a>
+     (generation) and <a href="https://github.com/SvirepyiBambr/stretchtext/blob/main/options.js#L36">options.js line 36</a>
+     (BYOP device flow). The end-to-end transcript is in
+     <a href="https://github.com/SvirepyiBambr/stretchtext/blob/main/docs/evidence/e2e-output.txt">docs/evidence/e2e-output.txt</a>.</p>
+
+<footer>Built for the <a href="https://github.com/pollinations/pollinations/issues/17998">stretchtext quest</a> ·
     Powered by <a href="https://pollinations.ai">Pollinations</a> · MIT</footer>
 </main>
 <script>
